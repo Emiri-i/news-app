@@ -1,5 +1,5 @@
 import React, { useEffect} from 'react';
-import './App.css';
+import './App.scss';
 import NewsGrid from "./components/NewsGrid";
 
 function App() {
