@@ -9,13 +9,13 @@
 
 .card-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-flow: row wrap;
   .card {
-    margin: 5px;
+    margin: 10px;
     background: lightblue;
     border-radius: 10px;
-    width: 90vw;
+    width: 80vw;
     transition: transform 0.2s ease;
     &:hover {
       transform: scale(1.05);
