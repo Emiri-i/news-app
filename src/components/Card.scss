@@ -4,19 +4,28 @@
 @media (min-width: 520px) {
   .card {
     width: 240px !important;
+    height: 68vh !important;
+    img {
+      height: 22vh !important;
+      width: 100% !important;
+      border-radius: 10px 10px 0 0;
+    }
   }
 }
 
+//css for mobile
 .card-wrapper {
   display: flex;
   justify-content: space-evenly;
   flex-flow: row wrap;
   .card {
     margin: 10px;
-    background: lightblue;
+    // background: lightblue;
     border-radius: 10px;
     width: 80vw;
+    height: 65vh;
     transition: transform 0.2s ease;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
     &:hover {
       transform: scale(1.05);
     }
@@ -38,7 +47,7 @@
       box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.3);
     }
     img {
-      height: 20vh;
+      height: 25vh;
       width: 100%;
       border-radius: 10px 10px 0 0;
     }
