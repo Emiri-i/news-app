@@ -18,7 +18,7 @@ const NewsGrid: React.FC<{ newsItems: NewsType[] }> = (props) => {
               <p className="no-photo">No Photo</p>
             </div>
           )}
-          <h1> {news.title}</h1>
+          <p className="news-title"> {news.title}</p>
         </Card>
       ))}
     </div>

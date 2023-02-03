@@ -1,4 +1,4 @@
-//css for mobile
+@import "../commonCss/global";
 
 //css for PC
 @media (min-width: 520px) {
@@ -70,6 +70,12 @@
         display: table-cell;
         vertical-align: middle;
       }
+    }
+    .news-title {
+      font-size: 1.5em;
+      color: $titleTextColor;
+      font-family: $titleTextFontFirst, $titleTextFontSecond;
+      font-weight: bold;
     }
   }
 }
