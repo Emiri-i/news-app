@@ -27,7 +27,9 @@ function App() {
         url: news.url ? news.url : "",
         imageUrl: news.urlToImage ? news.urlToImage : "",
         content: news.content ? news.content : "",
-        publishedDate: news.publishedAt ? news.publishedAt : "",
+        publishedDate: news.publishedAt
+          ? new Date(news.publishedAt).toLocaleString()
+          : "",
         source: news.source.name ? news.source.name : "",
         author: news.author ? news.author : "",
       })
