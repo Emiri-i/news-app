@@ -6,11 +6,11 @@ type Props = {
   children?: React.ReactNode
 }
 const Card: React.FC<Props> = ({ newsItem, children }) => {
-  const test = () => {
+  const redirectToWebPage = () => {
     window.open(newsItem.url)
   }
   return (
-    <div className="card" onClick={test}>
+    <div className="card" onClick={redirectToWebPage}>
       {children}
     </div>
   )
