@@ -17,7 +17,6 @@ function App() {
     const newsData = await data.json()
     let newDataArray: NewsType[] = []
     newsData.articles.forEach((news: returnedNewsDataType) => {
-      // console.log(news)
       newDataArray.push({
         id:
           (news.title ? news.title : "") +
