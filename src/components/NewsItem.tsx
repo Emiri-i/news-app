@@ -4,6 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCamera } from "@fortawesome/free-solid-svg-icons"
 
 const NewsItem: React.FC<{ newsItem: NewsType }> = (props) => {
+  const websiteUrl = props.newsItem.url.split("https://").pop()?.split("/")[0]
+  const faviconImgUrl = `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${websiteUrl}&size=16`
+
   return (
     <>
       {props.newsItem.imageUrl && (
@@ -18,7 +21,16 @@ const NewsItem: React.FC<{ newsItem: NewsType }> = (props) => {
         </div>
       )}
       <div className="news-text-wrapper">
-        <p className="news-source">{props.newsItem.source}</p>
+        <div className="news-source-wrapper">
+          <div className="favicon-wrapper">
+            <img
+              className="favicon"
+              src={faviconImgUrl}
+              alt={props.newsItem.source}
+            />
+          </div>
+          <p className="news-source">{props.newsItem.source}</p>
+        </div>
         <p className="news-title"> {props.newsItem.title}</p>
         <p className="news-content">{props.newsItem.content}</p>
         <p className="news-publised-date">{props.newsItem.publishedDate}</p>
