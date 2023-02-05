@@ -4,11 +4,9 @@
 @media (min-width: 520px) {
   .card {
     width: 300px !important;
-    height: 65vh !important;
-    img {
-      height: 24vh !important;
-      width: 100% !important;
-      border-radius: 10px 10px 0 0;
+
+    .news-content {
+      height: 12vh !important;
     }
   }
 }
@@ -18,9 +16,8 @@
   display: flex;
   justify-content: space-evenly;
   flex-flow: row wrap;
-  .card {
+  > .card {
     margin: 10px;
-    // background: lightblue;
     border-radius: 10px;
     width: 80vw;
     height: 65vh;
@@ -46,7 +43,7 @@
       border-radius: 10px;
       box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.3);
     }
-    img {
+    > img {
       height: $photoSize;
       width: 100%;
       border-radius: 10px 10px 0 0;
@@ -71,15 +68,27 @@
         vertical-align: middle;
       }
     }
-    .news-source {
-      font-size: 0.9em;
-      margin: 10px 0 0 0;
-      text-align: left;
-    }
     .news-text-wrapper {
-      // width: 80%;
-      margin: 0 10px;
-      .news-title {
+      margin: 10px;
+      > .news-source-wrapper {
+        display: flex;
+        align-items: center;
+        flex-flow: row;
+        > .favicon-wrapper {
+          margin: 0;
+          > .favicon {
+            display: table-cell;
+            vertical-align: middle;
+            margin: 0 5px 0 0;
+          }
+        }
+        > .news-source {
+          font-size: 0.9em;
+          margin: 0;
+          text-align: left;
+        }
+      }
+      > .news-title {
         text-align: left;
         height: 18vh;
         font-size: 1.4em;
@@ -89,22 +98,27 @@
         display: table-cell;
         vertical-align: middle;
         overflow: hidden;
-        text-overflow: ellipsis " [..]";
+        text-overflow: ellipsis;
         text-align: left;
       }
-      .news-content {
+      > .news-content {
         align-items: center;
         width: 100%;
-        height: 12vh;
+        height: 11vh;
         margin: 1px 0;
         white-space: wrap;
         font-family: Century;
         font-size: 0.95em;
         overflow: hidden;
-        text-overflow: ellipsis " [..]";
+        // white-space: nowrap;
+        // text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        white-space: pre-wrap;
         text-align: left;
       }
-      .news-publised-date {
+      > .news-publised-date {
         font-size: 0.9em;
         text-align: left;
         height: 5vh;
