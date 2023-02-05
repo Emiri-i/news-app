@@ -1,0 +1,128 @@
+@import "../commonCss/global";
+
+//css for PC
+@media (min-width: 520px) {
+  .card {
+    width: 300px !important;
+
+    .news-content {
+      height: 12vh !important;
+    }
+  }
+}
+
+//css for mobile
+.card-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  > .card {
+    margin: 10px;
+    border-radius: 10px;
+    width: 80vw;
+    height: 65vh;
+    transition: transform 0.2s ease;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+    &:hover {
+      transform: scale(1.05);
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 3;
+      border-radius: 10px;
+      transition: background-color 0.2s ease;
+      pointer-events: none;
+    }
+    &:hover::before {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.3);
+    }
+    > img {
+      height: $photoSize;
+      width: 100%;
+      border-radius: 10px 10px 0 0;
+    }
+    .no-photo-wrapper {
+      color: white;
+      background-color: gray;
+      height: $photoSize;
+      width: 100%;
+      border-radius: 10px 10px 0 0;
+      line-height: 20vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .no-photo {
+        margin: 0 10px;
+        font-size: 1.2em;
+      }
+      .font-awesome-camera-wrapper {
+        width: fit-content;
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    .news-text-wrapper {
+      margin: 10px;
+      > .news-source-wrapper {
+        display: flex;
+        align-items: center;
+        flex-flow: row;
+        > .favicon-wrapper {
+          margin: 0;
+          > .favicon {
+            display: table-cell;
+            vertical-align: middle;
+            margin: 0 5px 0 0;
+          }
+        }
+        > .news-source {
+          font-size: 0.9em;
+          margin: 0;
+          text-align: left;
+        }
+      }
+      > .news-title {
+        text-align: left;
+        height: 18vh;
+        font-size: 1.4em;
+        color: $titleTextColor;
+        font-family: $titleTextFontFirst, $titleTextFontSecond;
+        font-weight: bold;
+        display: table-cell;
+        vertical-align: middle;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: left;
+      }
+      > .news-content {
+        align-items: center;
+        width: 100%;
+        height: 11vh;
+        margin: 1px 0;
+        white-space: wrap;
+        font-family: Century;
+        font-size: 0.95em;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        white-space: pre-wrap;
+        text-align: left;
+      }
+      > .news-publised-date {
+        font-size: 0.9em;
+        text-align: left;
+        height: 5vh;
+        display: table-cell;
+        vertical-align: bottom;
+      }
+    }
+  }
+}

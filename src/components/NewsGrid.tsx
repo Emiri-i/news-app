@@ -1,7 +1,17 @@
-const NewsGrid= ()=>{
+import Card from "./Card"
+import NewsItem from "./NewsItem"
+import { NewsType } from "../types/globalTypes"
+
+const NewsGrid: React.FC<{ newsItems: NewsType[] }> = (props) => {
   return (
-    <div>test</div>
-  );
+    <div className="card-wrapper">
+      {props.newsItems.map((news) => (
+        <Card key={news.id}>
+          <NewsItem newsItem={news}></NewsItem>
+        </Card>
+      ))}
+    </div>
+  )
 }
 
-export default NewsGrid;
+export default NewsGrid
