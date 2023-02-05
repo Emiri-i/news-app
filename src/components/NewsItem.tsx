@@ -31,8 +31,16 @@ const NewsItem: React.FC<{ newsItem: NewsType }> = (props) => {
           </div>
           <p className="news-source">{props.newsItem.source}</p>
         </div>
-        <p className="news-title"> {props.newsItem.title}</p>
-        <p className="news-content">{props.newsItem.content}</p>
+        <p className="news-title">
+          {props.newsItem.title.length < 90
+            ? props.newsItem.title
+            : props.newsItem.title.substr(0, 90) + "…"}
+        </p>
+        <p className="news-content">
+          {props.newsItem.content
+            ? props.newsItem.content
+            : "No news content found."}
+        </p>
         <p className="news-publised-date">{props.newsItem.publishedDate}</p>
       </div>
     </>
