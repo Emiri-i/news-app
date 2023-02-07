@@ -1,3 +1,5 @@
+import React from "react"
+
 import { NewsType } from "../types/globalTypes"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -6,7 +8,6 @@ import { faCamera } from "@fortawesome/free-solid-svg-icons"
 const NewsItem: React.FC<{ newsItem: NewsType }> = (props) => {
   const websiteUrl = props.newsItem.url.split("https://").pop()?.split("/")[0]
   const faviconImgUrl = `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${websiteUrl}&size=16`
-
   return (
     <>
       {props.newsItem.imageUrl && (

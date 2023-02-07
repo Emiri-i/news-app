@@ -1,7 +1,9 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useContext } from "react"
+import { newsItemsContext } from "../store/newsItemContext"
 
 import "./FilterNews.scss"
-const SelectCategory: React.FC<{ currentCategory: string }> = (props) => {
+const SelectCategory: React.FC = () => {
+  const newsCtx = useContext(newsItemsContext)
   useEffect(() => {
     clickCategory()
   }, [])
@@ -9,7 +11,7 @@ const SelectCategory: React.FC<{ currentCategory: string }> = (props) => {
     const categoryElement =
       document.querySelectorAll<HTMLInputElement>(".category")
     categoryElement.forEach((el: HTMLElement) => {
-      if (props.currentCategory === el.innerHTML) {
+      if (newsCtx.newsCategoryName === el.innerHTML) {
         el.className += " current"
       }
     })

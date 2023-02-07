@@ -1,11 +1,13 @@
 import Card from "./Card"
 import NewsItem from "./NewsItem"
-import { NewsType } from "../types/globalTypes"
+import { newsItemsContext } from "../store/newsItemContext"
+import { useContext } from "react"
 
-const NewsGrid: React.FC<{ newsItems: NewsType[] }> = (props) => {
+const NewsGrid: React.FC = () => {
+  const newsCtx = useContext(newsItemsContext)
   return (
     <div className="card-wrapper">
-      {props.newsItems.map((news) => (
+      {newsCtx.items.map((news) => (
         <Card key={news.id} newsItem={news}>
           <NewsItem newsItem={news}></NewsItem>
         </Card>
