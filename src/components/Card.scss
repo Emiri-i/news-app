@@ -74,14 +74,16 @@
         display: flex;
         align-items: center;
         flex-flow: row;
-        > .favicon-wrapper {
-          margin: 0;
-          > .favicon {
+        // > .favicon-wrapper {
+        //   margin: 0;
+        > .news-icon {
+          margin: 0 5px 0 0;
+          .path {
             display: table-cell;
             vertical-align: middle;
-            margin: 0 5px 0 0;
           }
         }
+        // }
         > .news-source {
           font-size: 0.9em;
           margin: 0;

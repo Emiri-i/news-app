@@ -7,7 +7,7 @@ const useFetchData = () => {
   const APIKEY: string = "873bb42d84c34365a80ba866331d415f"
   useEffect(() => {
     getNews(newsCtx.newsCategoryName)
-  }, [])
+  }, [newsCtx.newsCategoryName])
   const getNews = async (categoryName: string) => {
     try {
       const data = await fetch(
