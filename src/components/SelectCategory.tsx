@@ -7,12 +7,24 @@ const SelectCategory: React.FC = () => {
   useEffect(() => {
     clickCategory()
   }, [])
-  const clickCategory = () => {
+  useEffect(() => {
+    changeCategory()
+  }, [newsCtx.newsCategoryName])
+  const clickCategory = (e?: React.MouseEvent) => {
+    if (e) {
+      const eventTarget = e.target as HTMLElement
+      console.log("props", eventTarget.innerHTML)
+      newsCtx.setNewsCategoryName(eventTarget.innerHTML)
+    }
+  }
+  const changeCategory = () => {
     const categoryElement =
       document.querySelectorAll<HTMLInputElement>(".category")
     categoryElement.forEach((el: HTMLElement) => {
       if (newsCtx.newsCategoryName === el.innerHTML) {
-        el.className += " current"
+        el.className = "category current "
+      } else {
+        el.className = "category"
       }
     })
   }
