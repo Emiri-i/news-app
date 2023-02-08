@@ -17,17 +17,19 @@ const SelectCategory: React.FC = () => {
       newsCtx.setNewsCategoryName(eventTarget.innerHTML)
     }
   }
+
   const changeCategory = () => {
     const categoryElement =
       document.querySelectorAll<HTMLInputElement>(".category")
     categoryElement.forEach((el: HTMLElement) => {
       if (newsCtx.newsCategoryName === el.innerHTML) {
-        el.className = "category current "
+        el.className = "category current"
       } else {
         el.className = "category"
       }
     })
   }
+
   return (
     <div className="category-wrapper">
       <button onClick={clickCategory} className="category">
