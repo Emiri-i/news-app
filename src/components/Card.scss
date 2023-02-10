@@ -74,8 +74,6 @@
         display: flex;
         align-items: center;
         flex-flow: row;
-        // > .favicon-wrapper {
-        //   margin: 0;
         > .news-icon {
           margin: 0 5px 0 0;
           .path {
@@ -83,7 +81,6 @@
             vertical-align: middle;
           }
         }
-        // }
         > .news-source {
           font-size: 0.9em;
           margin: 0;

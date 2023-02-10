@@ -13,7 +13,6 @@ const SelectCategory: React.FC = () => {
   const clickCategory = (e?: React.MouseEvent) => {
     if (e) {
       const eventTarget = e.target as HTMLElement
-      console.log("props", eventTarget.innerHTML)
       newsCtx.setNewsCategoryName(eventTarget.innerHTML)
     }
   }

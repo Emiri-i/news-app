@@ -36,7 +36,6 @@ const useFetchData = () => {
         })
       })
       newsCtx.setItems(newDataArray)
-      console.log("newsCtx", newsCtx)
     } catch (e) {
       window.alert(e)
     }
