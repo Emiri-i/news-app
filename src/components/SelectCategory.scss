@@ -1,0 +1,24 @@
+.category-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  > .category {
+    border: none;
+    outline: none;
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 5px 8px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    transition: transform 0.2s ease;
+    &.current {
+      background: #64b5f6;
+      color: white;
+    }
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+  }
+}
