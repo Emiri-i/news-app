@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react"
+import { useEffect, useContext } from "react"
 import { NewsType, returnedNewsDataType } from "../types/globalTypes"
 import { newsItemsContext } from "../store/newsItemContext"
 
@@ -6,12 +6,12 @@ const useFetchData = () => {
   const newsCtx = useContext(newsItemsContext)
   const APIKEY: string = "873bb42d84c34365a80ba866331d415f"
   useEffect(() => {
-    getNews(newsCtx.newsCategoryName)
-  }, [newsCtx.newsCategoryName])
-  const getNews = async (categoryName: string) => {
+    getNews(newsCtx.newsCategoryName, newsCtx.countryValue)
+  }, [newsCtx.newsCategoryName, newsCtx.countryValue])
+  const getNews = async (categoryName: string, countryValue: string) => {
     try {
       const data = await fetch(
-        `https://newsapi.org/v2/top-headlines?country=us&category=${categoryName}&apiKey=${APIKEY}`
+        `https://newsapi.org/v2/top-headlines?country=${countryValue}&category=${categoryName}&apiKey=${APIKEY}`
       )
       const newsData = await data.json()
       if (newsData.status !== "ok") {

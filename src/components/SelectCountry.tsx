@@ -1,21 +1,11 @@
-import { useState, useEffect } from "react"
 import Select from "react-select"
 import { country } from "../constant/constant"
-type CountryType = {
-  label: string
-  value: string
-}
+import { newsItemsContext } from "../store/newsItemContext"
+import { useContext } from "react"
+
 const SelectCountry: React.FC = () => {
-  const [countryValue, setCountryValue] = useState("us")
-  const [countryIndex, setCountryIndex] = useState(0)
-  useEffect(() => {
-    const index = country.map((c) => c.value).indexOf(countryValue)
-    setCountryIndex(index)
-  }, [countryValue])
-  const handleChange = (e: CountryType | unknown) => {
-    const targetValue = e as CountryType
-    setCountryValue(targetValue.value)
-  }
+  const newsCtx = useContext(newsItemsContext)
+
   const customStyles = {
     container: (provided: any) => ({
       ...provided,
@@ -55,8 +45,8 @@ const SelectCountry: React.FC = () => {
         className="react-select"
         styles={customStyles}
         placeholder="Select Country"
-        value={country[countryIndex]}
-        onChange={handleChange}
+        value={country[newsCtx.countryIndex]}
+        onChange={newsCtx.onCountryChange}
       />
     </div>
   )
