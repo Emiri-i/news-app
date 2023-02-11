@@ -1,7 +1,8 @@
 import React, { useEffect, useContext } from "react"
 import { newsItemsContext } from "../store/newsItemContext"
 
-import "./FilterNews.scss"
+import "./SelectCategory.scss"
+
 const SelectCategory: React.FC = () => {
   const newsCtx = useContext(newsItemsContext)
   useEffect(() => {
