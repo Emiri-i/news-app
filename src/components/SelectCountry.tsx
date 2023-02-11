@@ -13,28 +13,36 @@ const SelectCountry: React.FC = () => {
       justifyContent: "center",
       alignItems: "center",
       margin: "0 auto",
+      height: 50,
     }),
     menu: (provided: any) => ({
       ...provided,
       width: 250,
+      fontFamily: "Segoe UI",
     }),
     option: (provided: any, state: any) => ({
       ...provided,
       width: 250,
-      color: "#616161",
+      color: "#424242",
       backgroundColor: state.isSelected ? "#64b5f6" : "#fff",
     }),
     control: (provided: any, state: any) => ({
       ...provided,
       width: 250,
-      height: 20,
-      borderRadius: 15,
+      borderRadius: 20,
+      fontFamily: "Segoe UI",
+      fontSize: 18,
+      fontWeight: "bold",
       border: "2px solid rgba(0, 0, 0, 0.2) !important",
       boxShadow: state.isFocused ? 0 : 0,
     }),
     singleValue: (provided: any, state: any) => ({
       ...provided,
       color: "#616161",
+    }),
+    input: (provided: any) => ({
+      ...provided,
+      fontWeight: "normal",
     }),
   }
 

@@ -1,3 +1,5 @@
+@import "../commonCss/global";
+
 .category-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -7,11 +9,13 @@
     border: none;
     outline: none;
     display: inline-block;
-    margin: 5px 10px;
+    margin: 8px 10px;
     padding: 5px 8px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
+    border-radius: 20px;
     transition: transform 0.2s ease;
+    font-size: 20px;
+    color: $titleTextColor;
     &.current {
       background: #64b5f6;
       color: white;
