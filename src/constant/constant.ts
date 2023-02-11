@@ -3,7 +3,7 @@ export const country = [
   { value: "au", label: "Australia" },
   { value: "at", label: "Austria" },
   { value: "be", label: "Belgium" },
-  { value: "zr", label: "Brazil" },
+  { value: "br", label: "Brazil" },
   { value: "bg", label: "Bulgaria" },
   { value: "ca", label: "Canada" },
   { value: "cn", label: "China" },
