@@ -22,7 +22,7 @@ const SelectCategory: React.FC = () => {
     const categoryElement =
       document.querySelectorAll<HTMLInputElement>(".category")
     categoryElement.forEach((el: HTMLElement) => {
-      if (newsCtx.newsCategoryName === el.innerHTML) {
+      if (newsCtx.newsCategoryName === el.innerHTML.toLowerCase()) {
         el.className = "category current"
       } else {
         el.className = "category"
