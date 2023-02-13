@@ -20,7 +20,7 @@ const newsItemsContext = React.createContext<NewsItemsContextObj>({
   setItems: (Array: NewsType[]) => {},
   newsCategoryName: "",
   setNewsCategoryName: (categoryName: string) => {},
-  countryValue: "us",
+  countryValue: "all",
   countryIndex: 0,
   onCountryChange: (e: CountryType | unknown) => {},
 })
@@ -31,7 +31,7 @@ const NewsItemContextProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [newsItems, setNewsItems] = useState<NewsType[]>([])
   const [currentNewsCategory, setCurrentNewsCategory] = useState("business")
-  const [countryVal, setCountryValue] = useState("us")
+  const [countryVal, setCountryValue] = useState("all")
   const [countryIndex, setCountryIndex] = useState(0)
 
   useEffect(() => {
