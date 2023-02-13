@@ -2,6 +2,7 @@ import Select from "react-select"
 import { country } from "../constant/constant"
 import { newsItemsContext } from "../store/newsItemContext"
 import { useContext } from "react"
+import "./SelectCountry.scss"
 
 const SelectCountry: React.FC = () => {
   const newsCtx = useContext(newsItemsContext)
@@ -48,6 +49,9 @@ const SelectCountry: React.FC = () => {
 
   return (
     <div className="select-country-wrapper">
+      <div className="select-country-label-wrapper">
+        <div className="select-country-label">Select Country</div>
+      </div>
       <Select
         options={country}
         className="react-select"
