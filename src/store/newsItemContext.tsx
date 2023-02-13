@@ -18,7 +18,7 @@ type NewsItemsContextObj = {
 const newsItemsContext = React.createContext<NewsItemsContextObj>({
   items: [],
   setItems: (Array: NewsType[]) => {},
-  newsCategoryName: "",
+  newsCategoryName: "Business",
   setNewsCategoryName: (categoryName: string) => {},
   countryValue: "all",
   countryIndex: 0,
@@ -30,7 +30,7 @@ const NewsItemContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [newsItems, setNewsItems] = useState<NewsType[]>([])
-  const [currentNewsCategory, setCurrentNewsCategory] = useState("business")
+  const [currentNewsCategory, setCurrentNewsCategory] = useState("Business")
   const [countryVal, setCountryValue] = useState("all")
   const [countryIndex, setCountryIndex] = useState(0)
 
