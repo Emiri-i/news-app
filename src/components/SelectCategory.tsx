@@ -14,7 +14,7 @@ const SelectCategory: React.FC = () => {
   const clickCategory = (e?: React.MouseEvent) => {
     if (e) {
       const eventTarget = e.target as HTMLElement
-      newsCtx.setNewsCategoryName(eventTarget.innerHTML)
+      newsCtx.setNewsCategoryName(eventTarget.innerHTML.toLowerCase())
     }
   }
 
@@ -33,22 +33,22 @@ const SelectCategory: React.FC = () => {
   return (
     <div className="category-wrapper">
       <button onClick={clickCategory} className="category">
-        business
+        Business
       </button>
       <button onClick={clickCategory} className="category">
-        entertainment
+        Entertainment
       </button>
       <button onClick={clickCategory} className="category">
-        health
+        Health
       </button>
       <button onClick={clickCategory} className="category">
-        science
+        Science
       </button>
       <button onClick={clickCategory} className="category">
-        sports
+        Sports
       </button>
       <button onClick={clickCategory} className="category">
-        technology
+        Technology
       </button>
     </div>
   )
