@@ -1,4 +1,5 @@
 export const country = [
+  { value: "all", label: "All" },
   { value: "ar", label: "Argentina" },
   { value: "au", label: "Australia" },
   { value: "at", label: "Austria" },
