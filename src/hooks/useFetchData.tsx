@@ -10,13 +10,12 @@ const useFetchData = () => {
   }, [newsCtx.newsCategoryName, newsCtx.countryValue])
   const getNews = async (categoryName: string, countryValue: string) => {
     try {
-      console.log("countryValue", countryValue)
       let fetchApi = "https://newsapi.org/v2/top-headlines?"
-      if (countryValue === "all") {
-        fetchApi += `category=${categoryName}&apiKey=${APIKEY}`
-      } else {
-        fetchApi += `country=${countryValue}&category=${categoryName}&apiKey=${APIKEY}`
+      if (countryValue !== "all") {
+        fetchApi += `country=${countryValue}`
       }
+      const categoryApi = `category=${categoryName}&apiKey=${APIKEY}`
+      fetchApi += fetchApi.endsWith("?") ? categoryApi : "&" + categoryApi
       const data = await fetch(fetchApi)
       // const data = await fetch(
       //   `https://newsapi.org/v2/top-headlines?country=${countryValue}&category=${categoryName}&apiKey=${APIKEY}`
