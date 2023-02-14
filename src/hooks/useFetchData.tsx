@@ -18,6 +18,7 @@ const useFetchData = () => {
     keyword: string
   ) => {
     try {
+      newsCtx.setIsSearching(true)
       let fetchApi = "https://newsapi.org/v2/top-headlines?"
       if (countryValue !== "all") {
         fetchApi += `country=${countryValue}`
@@ -53,8 +54,10 @@ const useFetchData = () => {
         })
       })
       newsCtx.setItems(newDataArray)
+      newsCtx.setIsSearching(false)
     } catch (e) {
       window.alert(e)
+      newsCtx.setIsSearching(false)
     }
   }
 }

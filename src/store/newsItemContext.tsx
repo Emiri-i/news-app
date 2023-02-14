@@ -15,6 +15,8 @@ type NewsItemsContextObj = {
   onCountryChange: (e: CountryType | unknown) => void
   searchKeyWord: string
   setKeyWord: (keyword: string | undefined) => void
+  isSearching: boolean
+  setIsSearching: (isSearching: boolean) => void
 }
 
 const newsItemsContext = React.createContext<NewsItemsContextObj>({
@@ -27,6 +29,8 @@ const newsItemsContext = React.createContext<NewsItemsContextObj>({
   onCountryChange: (e: CountryType | unknown) => {},
   searchKeyWord: "",
   setKeyWord: (keyword: string | undefined) => {},
+  isSearching: false,
+  setIsSearching: (isSearching: boolean) => {},
 })
 export { newsItemsContext }
 
@@ -38,6 +42,7 @@ const NewsItemContextProvider: React.FC<{ children: React.ReactNode }> = ({
   const [countryVal, setCountryValue] = useState("all")
   const [countryIndex, setCountryIndex] = useState(0)
   const [searchKeyWord, setSearchKeyWord] = useState("")
+  const [isSearching, setIsSearching] = useState(false)
 
   useEffect(() => {
     const index = country.map((c) => c.value).indexOf(countryVal)
@@ -71,6 +76,8 @@ const NewsItemContextProvider: React.FC<{ children: React.ReactNode }> = ({
     onCountryChange,
     searchKeyWord,
     setKeyWord,
+    isSearching,
+    setIsSearching,
   }
   return (
     <newsItemsContext.Provider value={contextValue}>

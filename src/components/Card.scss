@@ -13,9 +13,16 @@
 
 //css for mobile
 .card-wrapper {
+  margin-top: 20px;
   display: flex;
   justify-content: space-evenly;
   flex-flow: row wrap;
+  > .loading-text {
+    font-size: 24px;
+  }
+  > .no-news-item-text {
+    font-size: 24px;
+  }
   > .card {
     margin: 10px;
     border-radius: 10px;
