@@ -6,20 +6,30 @@ const useFetchData = () => {
   const newsCtx = useContext(newsItemsContext)
   const APIKEY: string = "873bb42d84c34365a80ba866331d415f"
   useEffect(() => {
-    getNews(newsCtx.newsCategoryName, newsCtx.countryValue)
-  }, [newsCtx.newsCategoryName, newsCtx.countryValue])
-  const getNews = async (categoryName: string, countryValue: string) => {
+    getNews(
+      newsCtx.newsCategoryName,
+      newsCtx.countryValue,
+      newsCtx.searchKeyWord
+    )
+  }, [newsCtx.newsCategoryName, newsCtx.countryValue, newsCtx.searchKeyWord])
+  const getNews = async (
+    categoryName: string,
+    countryValue: string,
+    keyword: string
+  ) => {
     try {
       let fetchApi = "https://newsapi.org/v2/top-headlines?"
       if (countryValue !== "all") {
         fetchApi += `country=${countryValue}`
       }
-      const categoryApi = `category=${categoryName}&apiKey=${APIKEY}`
+      const categoryApi = `category=${categoryName}`
       fetchApi += fetchApi.endsWith("?") ? categoryApi : "&" + categoryApi
+      if (keyword !== "") {
+        fetchApi += `&q=${keyword}`
+      }
+      fetchApi += `&apiKey=${APIKEY}`
+      console.log("fetchApi", fetchApi)
       const data = await fetch(fetchApi)
-      // const data = await fetch(
-      //   `https://newsapi.org/v2/top-headlines?country=${countryValue}&category=${categoryName}&apiKey=${APIKEY}`
-      // )
       const newsData = await data.json()
       if (newsData.status !== "ok") {
         throw new Error("Getting news data failed.")

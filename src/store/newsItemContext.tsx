@@ -13,6 +13,8 @@ type NewsItemsContextObj = {
   countryValue: string
   countryIndex: number
   onCountryChange: (e: CountryType | unknown) => void
+  searchKeyWord: string
+  setKeyWord: (keyword: string | undefined) => void
 }
 
 const newsItemsContext = React.createContext<NewsItemsContextObj>({
@@ -23,6 +25,8 @@ const newsItemsContext = React.createContext<NewsItemsContextObj>({
   countryValue: "all",
   countryIndex: 0,
   onCountryChange: (e: CountryType | unknown) => {},
+  searchKeyWord: "",
+  setKeyWord: (keyword: string | undefined) => {},
 })
 export { newsItemsContext }
 
@@ -33,6 +37,7 @@ const NewsItemContextProvider: React.FC<{ children: React.ReactNode }> = ({
   const [currentNewsCategory, setCurrentNewsCategory] = useState("business")
   const [countryVal, setCountryValue] = useState("all")
   const [countryIndex, setCountryIndex] = useState(0)
+  const [searchKeyWord, setSearchKeyWord] = useState("")
 
   useEffect(() => {
     const index = country.map((c) => c.value).indexOf(countryVal)
@@ -48,6 +53,14 @@ const NewsItemContextProvider: React.FC<{ children: React.ReactNode }> = ({
     setNewsItems(val)
   }
 
+  const setKeyWord = (kw: string | undefined) => {
+    if (!kw) {
+      setSearchKeyWord("")
+    } else {
+      setSearchKeyWord(kw)
+    }
+  }
+
   const contextValue: NewsItemsContextObj = {
     items: newsItems,
     setItems,
@@ -56,6 +69,8 @@ const NewsItemContextProvider: React.FC<{ children: React.ReactNode }> = ({
     countryValue: countryVal,
     countryIndex,
     onCountryChange,
+    searchKeyWord,
+    setKeyWord,
   }
   return (
     <newsItemsContext.Provider value={contextValue}>

@@ -1,6 +1,13 @@
 import "./SearchByKeyword.scss"
+import { newsItemsContext } from "../store/newsItemContext"
+import { useContext, useRef } from "react"
 
 const SearchByKeyWord = () => {
+  const newsCtx = useContext(newsItemsContext)
+  const inputElement = useRef<HTMLInputElement>(null)
+  const submit = () => {
+    newsCtx.setKeyWord(inputElement?.current?.value)
+  }
   return (
     <div className="search-keyword-wrapper">
       <label>
@@ -9,9 +16,15 @@ const SearchByKeyWord = () => {
         </div>
         <div className="search-input-section-wrapper">
           <div className="search-keyword-input-wrapper">
-            <input className="search-keyword-input" type="text" />
+            <input
+              className="search-keyword-input"
+              type="text"
+              ref={inputElement}
+            />
           </div>
-          <button className="search-button">search</button>
+          <button className="search-button" onClick={submit}>
+            search
+          </button>
         </div>
       </label>
     </div>
