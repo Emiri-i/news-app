@@ -4,3 +4,12 @@
   text-align: center;
   color: $textColor;
 }
+.app-header {
+  > .page-title {
+    font-size: 52px;
+    font-weight: bold;
+    color: $titleTextColor;
+    font-family: $titleTextFontFirst;
+    margin: 25px 0;
+  }
+}

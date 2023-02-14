@@ -8,8 +8,10 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header"></header>
-      <FilterNews />
+      <header className="app-header">
+        <div className="page-title">Find The Latest News</div>
+        <FilterNews />
+      </header>
       <NewsGrid />
     </div>
   )
