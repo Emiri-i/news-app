@@ -54,10 +54,6 @@ const NewsItemContextProvider: React.FC<{ children: React.ReactNode }> = ({
     setCountryValue(targetValue.value)
   }
 
-  const setItems = (val: NewsType[]) => {
-    setNewsItems(val)
-  }
-
   const setKeyWord = (kw: string | undefined) => {
     if (!kw) {
       setSearchKeyWord("")
@@ -68,7 +64,7 @@ const NewsItemContextProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const contextValue: NewsItemsContextObj = {
     items: newsItems,
-    setItems,
+    setItems: setNewsItems,
     newsCategoryName: currentNewsCategory,
     setNewsCategoryName: setCurrentNewsCategory,
     countryValue: countryVal,
