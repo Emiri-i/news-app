@@ -1,0 +1,29 @@
+.search-keyword-label-wrapper {
+  margin: 0 auto;
+  width: 250px;
+}
+.search-keyword-label {
+  width: fit-content;
+}
+.search-keyword-input-wrapper {
+  margin: 0 auto;
+  width: 250px;
+  height: 35px;
+  border-radius: 20px;
+  font-family: "Segoe UI";
+  font-size: 18px;
+  font-weight: "bold";
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-keyword-input {
+  border: none;
+  box-shadow: none;
+  width: 90%;
+  font-size: 18px;
+  &:focus {
+    outline: none;
+  }
+}
