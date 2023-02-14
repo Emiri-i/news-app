@@ -30,6 +30,30 @@
     height: 65vh;
     transition: transform 0.2s ease;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+
+    //for the "Read More" text when each card is hovered
+    overflow: hidden;
+    position: relative;
+    .show-card-is-hovered {
+      position: absolute;
+      top: 43%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: #fff;
+      z-index: 5;
+      transition: 0.3s ease-in-out;
+      opacity: 0;
+      font-size: 32px;
+      font-family: $titleTextFontFirst;
+    }
+    &:hover {
+      .show-card-is-hovered {
+        opacity: 1;
+      }
+    }
+    //until here
+
     &:hover {
       transform: scale(1.05);
     }

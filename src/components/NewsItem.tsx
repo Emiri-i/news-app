@@ -9,6 +9,7 @@ import { faNewspaper } from "@fortawesome/free-solid-svg-icons"
 const NewsItem: React.FC<{ newsItem: NewsType }> = (props) => {
   return (
     <>
+      <div className="show-card-is-hovered">Read More</div>
       {props.newsItem.imageUrl && (
         <img src={props.newsItem.imageUrl} alt="news image" />
       )}
