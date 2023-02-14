@@ -6,16 +6,23 @@
     width: 300px !important;
 
     .news-content {
-      height: 12vh !important;
+      height: 12.5vh !important;
     }
   }
 }
 
 //css for mobile
 .card-wrapper {
+  margin-top: 25px;
   display: flex;
   justify-content: space-evenly;
   flex-flow: row wrap;
+  > .loading-text {
+    font-size: 24px;
+  }
+  > .no-news-item-text {
+    font-size: 24px;
+  }
   > .card {
     margin: 10px;
     border-radius: 10px;
@@ -23,6 +30,30 @@
     height: 65vh;
     transition: transform 0.2s ease;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+
+    //for the "Read More" text when each card is hovered
+    overflow: hidden;
+    position: relative;
+    .show-card-is-hovered {
+      position: absolute;
+      top: 43%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: #fff;
+      z-index: 5;
+      transition: 0.3s ease-in-out;
+      opacity: 0;
+      font-size: 32px;
+      font-family: $titleTextFontFirst;
+    }
+    &:hover {
+      .show-card-is-hovered {
+        opacity: 1;
+      }
+    }
+    //until here
+
     &:hover {
       transform: scale(1.05);
     }
@@ -74,12 +105,11 @@
         display: flex;
         align-items: center;
         flex-flow: row;
-        > .favicon-wrapper {
-          margin: 0;
-          > .favicon {
+        > .news-icon {
+          margin: 0 5px 0 0;
+          .path {
             display: table-cell;
             vertical-align: middle;
-            margin: 0 5px 0 0;
           }
         }
         > .news-source {
@@ -88,40 +118,52 @@
           text-align: left;
         }
       }
-      > .news-title {
-        text-align: left;
-        height: 18vh;
-        font-size: 1.4em;
-        color: $titleTextColor;
-        font-family: $titleTextFontFirst, $titleTextFontSecond;
-        font-weight: bold;
-        display: table-cell;
-        vertical-align: middle;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        text-align: left;
-      }
-      > .news-content {
-        align-items: center;
-        width: 100%;
-        height: 11vh;
-        margin: 1px 0;
-        white-space: wrap;
-        font-family: Century;
-        font-size: 0.95em;
+      > .news-title-wrapper {
         overflow: hidden;
         display: -webkit-box;
-        -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
-        white-space: pre-wrap;
-        text-align: left;
+        height: 18vh;
+        > .news-title {
+          text-align: left;
+          height: 18vh;
+          font-size: 1.4em;
+          color: $titleTextColor;
+          font-family: $titleTextFontFirst, $titleTextFontSecond;
+          font-weight: bold;
+          display: table-cell;
+          vertical-align: middle;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          text-align: left;
+        }
+      }
+      > .news-content-wrapper {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        height: 12.5vh;
+        > .news-content {
+          align-items: center;
+          width: 100%;
+          height: 11vh;
+          margin: 0;
+          white-space: wrap;
+          font-family: Century;
+          font-size: 0.95em;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+          white-space: pre-wrap;
+          text-align: left;
+        }
       }
       > .news-publised-date {
         font-size: 0.9em;
         text-align: left;
         height: 5vh;
         display: table-cell;
-        vertical-align: bottom;
+        vertical-align: middle;
       }
     }
   }

@@ -1,14 +1,15 @@
+import React from "react"
+
 import { NewsType } from "../types/globalTypes"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCamera } from "@fortawesome/free-solid-svg-icons"
+import { faNewspaper } from "@fortawesome/free-solid-svg-icons"
 
 const NewsItem: React.FC<{ newsItem: NewsType }> = (props) => {
-  const websiteUrl = props.newsItem.url.split("https://").pop()?.split("/")[0]
-  const faviconImgUrl = `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${websiteUrl}&size=16`
-
   return (
     <>
+      <div className="show-card-is-hovered">Read More</div>
       {props.newsItem.imageUrl && (
         <img src={props.newsItem.imageUrl} alt="news image" />
       )}
@@ -22,25 +23,23 @@ const NewsItem: React.FC<{ newsItem: NewsType }> = (props) => {
       )}
       <div className="news-text-wrapper">
         <div className="news-source-wrapper">
-          <div className="favicon-wrapper">
-            <img
-              className="favicon"
-              src={faviconImgUrl}
-              alt={props.newsItem.source}
-            />
-          </div>
+          <FontAwesomeIcon className="news-icon" icon={faNewspaper} />
           <p className="news-source">{props.newsItem.source}</p>
         </div>
-        <p className="news-title">
-          {props.newsItem.title.length < 90
-            ? props.newsItem.title
-            : props.newsItem.title.substr(0, 90) + "…"}
-        </p>
-        <p className="news-content">
-          {props.newsItem.content
-            ? props.newsItem.content
-            : "No news content found."}
-        </p>
+        <div className="news-title-wrapper">
+          <p className="news-title">
+            {props.newsItem.title.length < 90
+              ? props.newsItem.title
+              : props.newsItem.title.substr(0, 90) + "…"}
+          </p>
+        </div>
+        <div className="news-content-wrapper">
+          <p className="news-content">
+            {props.newsItem.content
+              ? props.newsItem.content
+              : "No news content found."}
+          </p>
+        </div>
         <p className="news-publised-date">{props.newsItem.publishedDate}</p>
       </div>
     </>
