@@ -55,10 +55,6 @@ $ npm run start
 
 ## :bulb: Room for Improvement
 
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
-Room for improvement:
-
 - Record which country and category are used the last time to set the default value for the next time when the website is visited.
 - Separate the search filter function. Would like to make 1 page for keyword search and the other page for category and country filter.
 
