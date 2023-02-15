@@ -1,12 +1,11 @@
 # News App
 
 > This is an app that you can find the latest news. Category and country filter and keyword search is available.
-> Live demo [_here_](http://localhost:3000).
 
 # Screen Shots
 
-![image](./img/screenshot.png)
-![image](./img/screenshot2.png)
+![image](./src/img/screenshot.png)
+![image](./src/img/screenshot2.png)
 
 ## Table of Contents
 
