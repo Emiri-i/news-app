@@ -1,4 +1,4 @@
-#　:newspaper: News App
+## :newspaper: News App
 
 > This is an app that you can find the latest news. Category and country filter and keyword search is available.
 
