@@ -4,8 +4,8 @@
 
 ## :camera: Screen Shots
 
-![image](./src/img/screenshot01.png)
-![image](./src/img/screenshot02.png)
+![image](../src/img/screenshot01.png)
+![image](../src/img/screenshot02.png)
 
 ## :clipboard: Table of Contents
 
