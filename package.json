@@ -1,4 +1,5 @@
 {
+  "homepage": "https://emiri-i.github.io/news-app/",
   "name": "news-app",
   "version": "0.1.0",
   "private": true,
@@ -51,6 +52,5 @@
     "@types/node-sass": "^4.11.3",
     "gh-pages": "^5.0.0",
     "node-sass": "^7.0.3"
-  },
-  "homepage": "https://emiri-i.github.io/news-app"
+  }
 }
