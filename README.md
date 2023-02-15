@@ -1,8 +1,8 @@
-# 　:newspaper: News App 　
+#　:newspaper: News App
 
 > This is an app that you can find the latest news. Category and country filter and keyword search is available.
 
-# :camera: Screen Shots
+## :camera: Screen Shots
 
 ![image](./src/img/screenshot01.png)
 ![image](./src/img/screenshot02.png)
