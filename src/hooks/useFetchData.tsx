@@ -29,7 +29,6 @@ const useFetchData = () => {
         fetchApi += `&q=${keyword}`
       }
       fetchApi += `&apiKey=${APIKEY}`
-      console.log("fetchApi", fetchApi)
       const data = await fetch(fetchApi)
       const newsData = await data.json()
       if (newsData.status !== "ok") {
