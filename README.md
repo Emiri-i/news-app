@@ -4,8 +4,8 @@
 
 # Screen Shots
 
-![image](./src/img/screenshot.png)
-![image](./src/img/screenshot2.png)
+![image](./src/img/screenshot01.png)
+![image](./src/img/screenshot02.png)
 
 ## Table of Contents
 
