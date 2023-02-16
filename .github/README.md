@@ -7,14 +7,6 @@
 ![image](../src/img/screenshot01.png)
 ![image](../src/img/screenshot02.png)
 
-## :clipboard: Table of Contents
-
-- [Technologies Used](#technologies-used)
-- [Features](#features)
-- [Setup](#setup)
-- [Room for Improvement](#room-for-improvement)
-- [License](#license)
-
 ## :computer: Technologies Used
 
 [![My Skills](https://skillicons.dev/icons?i=react,ts,js,html,css,git,github)](https://skillicons.dev)
