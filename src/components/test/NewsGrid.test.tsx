@@ -1,12 +1,15 @@
-import { render, screen } from "@testing-library/react";
-import React from "react";
+import { render, RenderOptions, screen } from "@testing-library/react";
+import React, { ReactElement } from "react";
 import NewsGrid from "../NewsGrid";
 import { newsItemsContext } from "../../store/newsItemContext";
 import { createServer } from "../../test/serverFunction";
-
 import { NewsType } from "../../types/globalTypes";
 import "@testing-library/jest-dom";
+import { customRender } from "../../test/customRender";
 
+type ProviderProps = {
+  value: NewsItemsContextObj;
+};
 type CountryType = {
   label: string;
   value: string;
@@ -59,8 +62,9 @@ const itemsArray: itemObjType[] = [
     author: "test authoer 2",
   },
 ];
+
 const returnValue = (items: itemObjType[], isSearching?: boolean) => {
-  const contextValue1: NewsItemsContextObj = {
+  const contextValue: NewsItemsContextObj = {
     items: items,
     setItems: jest.fn(),
     newsCategoryName: "business",
@@ -73,7 +77,7 @@ const returnValue = (items: itemObjType[], isSearching?: boolean) => {
     isSearching: isSearching ? isSearching : false,
     setIsSearching: jest.fn(),
   };
-  return contextValue1;
+  return contextValue;
 };
 
 describe("RenderingTest", () => {
@@ -81,43 +85,40 @@ describe("RenderingTest", () => {
 
   test("Sholud show No News Found text", async () => {
     const contextValue = returnValue([]);
+    const providerProps: ProviderProps = {
+      value: contextValue,
+    };
     await fetch(
       "newsapi.org/v2/top-headlines?category=business&apiKey=873bb42d84c34365a80ba866331d415f",
       { method: "GET" }
     );
-    render(
-      <newsItemsContext.Provider value={contextValue}>
-        <NewsGrid />
-      </newsItemsContext.Provider>
-    );
+    customRender(<NewsGrid />, { providerProps });
     expect(screen.getByText("No News Found.")).toBeInTheDocument();
   });
 
   test("Sholud show loading text", async () => {
     const contextValue = returnValue(itemsArray, true);
+    const providerProps: ProviderProps = {
+      value: contextValue,
+    };
     await fetch(
       "newsapi.org/v2/top-headlines?category=business&apiKey=873bb42d84c34365a80ba866331d415f",
       { method: "GET" }
     );
-    render(
-      <newsItemsContext.Provider value={contextValue}>
-        <NewsGrid />
-      </newsItemsContext.Provider>
-    );
+    customRender(<NewsGrid />, { providerProps });
     expect(screen.getByText("Loading...")).toBeInTheDocument();
   });
 
   test("Should shows news grid", async () => {
     const contextValue = returnValue(itemsArray);
+    const providerProps: ProviderProps = {
+      value: contextValue,
+    };
     await fetch(
       "newsapi.org/v2/top-headlines?category=business&apiKey=873bb42d84c34365a80ba866331d415f",
       { method: "GET" }
     );
-    render(
-      <newsItemsContext.Provider value={contextValue}>
-        <NewsGrid />
-      </newsItemsContext.Provider>
-    );
+    customRender(<NewsGrid />, { providerProps });
 
     expect(screen.getByText("test title 1")).toBeInTheDocument();
     expect(screen.getByText("test title 2")).toBeInTheDocument();
