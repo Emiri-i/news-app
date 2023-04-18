@@ -75,7 +75,18 @@ type NewsItemsContextObj = {
   isSearching: boolean;
   setIsSearching: (isSearching: boolean) => void;
 };
-const itemsArray = [
+type itemObjType = {
+  id: string;
+  title: string;
+  description: string;
+  url: string;
+  imageUrl: string;
+  content: string;
+  publishedDate: string;
+  source: string;
+  author: string;
+};
+const itemsArray: itemObjType[] = [
   {
     id: "test source id 1",
     title: "test title 1",
@@ -99,22 +110,26 @@ const itemsArray = [
     author: "test authoer 2",
   },
 ];
+const returnValue = (items: itemObjType[], isSearching?: boolean) => {
+  const contextValue1: NewsItemsContextObj = {
+    items: items,
+    setItems: jest.fn(),
+    newsCategoryName: "business",
+    setNewsCategoryName: jest.fn(),
+    countryValue: "all",
+    countryIndex: 0,
+    onCountryChange: jest.fn(),
+    searchKeyWord: "",
+    setKeyWord: jest.fn(),
+    isSearching: isSearching ? isSearching : false,
+    setIsSearching: jest.fn(),
+  };
+  return contextValue1;
+};
 
 describe("RenderingTest", () => {
   test("Sholud show No News Found text", async () => {
-    const contextValue: NewsItemsContextObj = {
-      items: [],
-      setItems: jest.fn(),
-      newsCategoryName: "business",
-      setNewsCategoryName: jest.fn(),
-      countryValue: "all",
-      countryIndex: 0,
-      onCountryChange: jest.fn(),
-      searchKeyWord: "",
-      setKeyWord: jest.fn(),
-      isSearching: false,
-      setIsSearching: jest.fn(),
-    };
+    const contextValue = returnValue([]);
     await fetch(
       "newsapi.org/v2/top-headlines?category=business&apiKey=873bb42d84c34365a80ba866331d415f",
       { method: "GET" }
@@ -128,19 +143,7 @@ describe("RenderingTest", () => {
   });
 
   test("Sholud show loading text", async () => {
-    const contextValue: NewsItemsContextObj = {
-      items: itemsArray,
-      setItems: jest.fn(),
-      newsCategoryName: "business",
-      setNewsCategoryName: jest.fn(),
-      countryValue: "all",
-      countryIndex: 0,
-      onCountryChange: jest.fn(),
-      searchKeyWord: "",
-      setKeyWord: jest.fn(),
-      isSearching: true,
-      setIsSearching: jest.fn(),
-    };
+    const contextValue = returnValue(itemsArray, true);
     await fetch(
       "newsapi.org/v2/top-headlines?category=business&apiKey=873bb42d84c34365a80ba866331d415f",
       { method: "GET" }
@@ -154,19 +157,7 @@ describe("RenderingTest", () => {
   });
 
   test("Should shows news grid", async () => {
-    const contextValue: NewsItemsContextObj = {
-      items: itemsArray,
-      setItems: jest.fn(),
-      newsCategoryName: "business",
-      setNewsCategoryName: jest.fn(),
-      countryValue: "all",
-      countryIndex: 0,
-      onCountryChange: jest.fn(),
-      searchKeyWord: "",
-      setKeyWord: jest.fn(),
-      isSearching: false,
-      setIsSearching: jest.fn(),
-    };
+    const contextValue = returnValue(itemsArray);
     await fetch(
       "newsapi.org/v2/top-headlines?category=business&apiKey=873bb42d84c34365a80ba866331d415f",
       { method: "GET" }
