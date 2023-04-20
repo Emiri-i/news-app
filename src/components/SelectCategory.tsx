@@ -38,7 +38,7 @@ const SelectCategory: React.FC = () => {
   return (
     <div className="category-wrapper">
       {categoryList.map((list) => (
-        <button onClick={clickCategory} className="category">
+        <button onClick={clickCategory} className="category" key={list}>
           {list}
         </button>
       ))}
