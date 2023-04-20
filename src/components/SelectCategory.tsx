@@ -14,9 +14,6 @@ const SelectCategory: React.FC = () => {
     "Technology",
   ];
   useEffect(() => {
-    clickCategory();
-  }, []);
-  useEffect(() => {
     changeCategory();
   }, [newsCtx.newsCategoryName]);
   const clickCategory = (e?: React.MouseEvent) => {
