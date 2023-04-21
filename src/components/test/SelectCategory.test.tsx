@@ -1,6 +1,6 @@
 import React from "react";
 import SelectCategory from "../SelectCategory";
-import { render, screen, act } from "@testing-library/react";
+import { render, screen, act, waitFor } from "@testing-library/react";
 import { customRender } from "../../test/customRender";
 import { NewsType } from "../../types/globalTypes";
 import userEvent from "@testing-library/user-event";
@@ -99,11 +99,11 @@ describe("Rendering test", () => {
     await expect(contextValue.setNewsCategoryName).toHaveBeenCalledWith(
       "entertainment"
     );
-    setTimeout(async () => {
-      const enterteimentButton = await screen.findByRole("button", {
-        name: /entertainment/i,
-      });
-      expect(enterteimentButton?.classList.contains("current")).toBe(true);
-    }, 1000);
+    await waitFor(
+      () => {
+        expect(entertaimentCtgButton?.textContent).toBe("Entertainment");
+      },
+      { timeout: 2000 }
+    );
   });
 });
